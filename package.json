@@ -1,0 +1,8 @@
+{
+  "name": "adventOfCode2017",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shelly Yip",
+  "license": "MIT",
+  "private": true
+}
