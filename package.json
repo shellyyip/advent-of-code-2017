@@ -4,5 +4,12 @@
   "main": "index.js",
   "author": "Shelly Yip",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "mocha -w",
+    "generateAnswers": "node ./index.js"
+  } 
 }
