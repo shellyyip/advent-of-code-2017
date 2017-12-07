@@ -17,7 +17,7 @@ const day02 = {
     return result
   },
 
-  calculateChecksum: function(matrix) {
+  calculateChecksumPartOne: function(matrix) {
     const checksumNumbers = [] // array of numbers that need to be summed
 
     matrix.forEach((array) => {
@@ -27,6 +27,37 @@ const day02 = {
     })
 
     return checksumNumbers.reduce((acc, currVal) => (acc + currVal))
+  },
+
+  /**
+   * Finds the two numbers in an array that divide evenly into one another.
+   * @returns {num} quotient of the two numbers 
+   */
+  findEvenDivisors: function(array) {
+    // Sort array in descending order
+    array.sort((a, b) => (b - a))
+
+    // For each member of the array, divide each other number into it
+    // until there is a result with no remainder 
+    for (let i = 0; i < array.length; i++) {
+      const dividend = array[i]
+
+      for (let j = i+1; j < array.length; j++) {
+        const divisor = array[j]
+        if (dividend % divisor === 0) {
+          return dividend/divisor
+        }
+      }
+
+    }
+  },
+
+  calculateChecksumPartTwo: function(matrix) {
+    const checksumNumbers = matrix.map((array) => {
+      return this.findEvenDivisors(array) 
+    })
+
+    return checksumNumbers.reduce((acc, currVal) => (acc + currVal)) 
   },
 
   generateAnswer: function(string) {
@@ -47,7 +78,12 @@ const day02 = {
     3178	219	253	1297	3661	1552	8248	678	245	7042	260	581	7350	431	8281	8117
     837	80	95	281	652	822	1028	1295	101	1140	88	452	85	444	649	1247`
 
-    return this.calculateChecksum(this.formatSpreadsheet(puzzleInput))
+    const answerPart1 = this.calculateChecksumPartOne(this.formatSpreadsheet(puzzleInput))
+
+    const answerPart2 = this.calculateChecksumPartTwo(this.formatSpreadsheet(puzzleInput))
+
+    console.log('Day 02 Answer, Part 1: ', answerPart1)
+    console.log('Day 02 Answer, Part 2: ', answerPart2)
   },
 
 }
