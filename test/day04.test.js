@@ -1,7 +1,7 @@
 const assert = require('assert')
 const day04 = require('../day04')
 
-describe.only('Day 04', function() {
+describe('Day 04', function() {
   describe('Passphrase verification', function() {
     describe('Passphrase duplicate words check', function() {
       const validTestInputs = [
@@ -73,20 +73,32 @@ describe.only('Day 04', function() {
   })
 
   describe('Valid passphrase counting', function() {
-    it('returns the correct number of passphrases with no duplicates when given an array of passphrases', function(){
+    it('returns the correct number of passphrases with no duplicates when given an array of passphrases and a verification function', function(){
       const testInput = [
         'aa bb cc dd ee',
         'aa bb cc dd aa',
         'aa bb cc dd aaa',
       ]
       const expectedResult = 2
-      const result = day04.countValidPassphrases(testInput)
+      const result = day04.countValidPassphrases(
+        testInput, 
+        day04.containsNoDuplicates
+      )
 
       assert.equal(result, expectedResult)
     })
 
-    it('returns the correct number of passphrases that has no anagrams when given an array of passphrases', function() {
-
+    it('returns the correct number of passphrases that has no anagrams when given an array of passphrases and a verification function', function() {
+      const testInput = [
+        'iioo oioi',
+        'aaaa bbbb',
+      ]
+      const expectedResult = 1
+      const result = day04.countValidPassphrases(
+        testInput, 
+        day04.containsNoAnagrams.bind(day04)
+      )
+      assert.equal(result, expectedResult)
     })
   })
 })
