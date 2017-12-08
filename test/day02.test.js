@@ -1,7 +1,7 @@
 const assert = require('assert')
 const day02 = require('../day02.js')
 
-describe('Day 02, 2017, part 1', function() {
+describe('Day 02, part 1', function() {
   it('formats the "spreadsheet" into an array of arrays', function() {
     const testInput =
     `5 1 9  5
