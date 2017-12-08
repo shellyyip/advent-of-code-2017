@@ -1,7 +1,7 @@
 const puzzleInput = require('./inputs/day04.input')
 
 module.exports = {
-  isValidPassphrase: string => {
+  containsNoDuplicates: string => {
     const words = string.split(' ')
     // For each word, filter the array by that word
     // If the length of the resulting filtered array is greater
@@ -11,6 +11,10 @@ module.exports = {
       if (occurrences.length > 1) return false
     }
     return true
+  },
+
+  containsNoAnagrams: string => {
+    const words = string.split(' ')
   },
 
   /**
@@ -30,7 +34,7 @@ module.exports = {
 
   countValidPassphrases: function(passphraseArray) {
     const validPassphrases = passphraseArray.filter(passphrase => {
-      return this.isValidPassphrase(passphrase)
+      return this.containsNoDuplicates(passphrase)
     })
     return validPassphrases.length
   },
