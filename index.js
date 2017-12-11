@@ -4,6 +4,7 @@ const day04 = require('./day04')
 const Day05 = require('./day05')
 const puzzleInputDay05 = require('./inputs/day05.input')
 const Day06 = require('./day06')
+const day07 = require('./day07')
 
 console.log('running Advent of Code 2017!')
 // day02.generateAnswer()
@@ -19,5 +20,7 @@ console.log('running Advent of Code 2017!')
 // }
 // day05generateAnswers()
 
-const day06 = new Day06
-day06.generateAnswers()
+// const day06 = new Day06
+// day06.generateAnswers()
+
+day07.generateAnswers.bind(day07)()
