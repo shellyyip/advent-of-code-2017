@@ -85,4 +85,28 @@ describe.only('Day 07', function() {
       assert.deepEqual(result, testProgramObjectsArray[1])
     })
   })
+
+  describe('Searching', function() {
+    it('can find a program id when given a name and a program names array', function() {
+      const testInput = 'fwft'
+      const result = day07.findProgramId(testInput, testProgramNamesArray)
+      const expectedResult = 5
+
+      assert.equal(result, expectedResult)
+    })
+
+    it('can find a program name when given an id and a program objects array', function() {
+      const testInput = 5
+      const result = day07.findProgramName(testInput, testProgramObjectsArray)
+      const expectedResult = 'fwft'
+      
+      assert.equal(result, expectedResult)
+    })
+  })
+
+  describe('Tree generation', function() {
+    it.skip('can construct a tree', function() {
+
+    })
+  })
 })

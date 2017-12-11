@@ -12,8 +12,16 @@ module.exports = {
     })
   },
 
-  findProgramId: function findProgramId (name, programArray) {
-    return programArray.findIndex(program => (name === program))
+  findProgramId: function findProgramId (name, programNamesArray) {
+    return programNamesArray.findIndex(program => (name === program))
+  },
+
+  findProgramName: function findProgramName (id, programObjectsArray) {
+    const program = programObjectsArray.find(programObject => {
+      return programObject.id === id
+    })
+
+    return program.name
   },
 
   /**
